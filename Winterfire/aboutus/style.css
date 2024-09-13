@@ -1,0 +1,86 @@
+body {
+    background-color: aquamarine;
+}
+
+h1 {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.firstcontainer {
+    background-color: aqua;
+    display: flex;
+}
+
+.container2 {
+    background-color: darkturquoise;
+    display: flex;
+}
+
+.container3 {
+    background-color:deepskyblue;
+    display: flex;
+}
+
+.container4 {
+    background-color:cornflowerblue;
+    display: flex;
+}
+
+.container4 {
+    background-color:cornflowerblue;
+    display: flex;
+}
+
+.container5 {
+    background-color: darkcyan;
+    display: flex;
+}
+
+img {
+    display: block;
+    position: relative;
+    width: 40%;
+}
+
+.henrikibsen {
+    display: block;
+    position: relative;
+    width: 20%;
+}
+
+h2 {
+   display: block;
+    font-size: xx-large;
+    position: inline-block;
+}
+
+
+p {
+    font-size:larger;
+    line-height: 1.5;
+}
+
+.home {
+    display: block;
+    font-size: large;
+    color:darkslategray;
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.getstarted {
+        font-size: large;
+        color: darkslategray;
+        display: block;
+        position: absolute;
+        font-size: larger;
+        margin-left: 100px;
+        margin-top: 5px;
+    
+}
+
+.top {
+    background-color: aqua;
+}

@@ -1,0 +1,46 @@
+.p-keyhole {
+    display: block;
+    background-color: aliceblue;
+}
+
+h1 {
+    color: gray;
+}
+
+.body {
+    background-color: black;
+}
+
+.pey {
+    display: none;
+    cursor: pointer;
+}
+
+.ptext {
+    text-align: center;
+    color: white;
+}
+
+.ptexta {
+    text-decoration: none;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.chatbutton {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 7%;
+    cursor: pointer;
+}
+
+.p {
+    text-decoration: none;
+    color: black;
+    
+}
