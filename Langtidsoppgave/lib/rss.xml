@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dørgang]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>lib/media/favicon.png</url><title>Dørgang</title><link></link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Fri, 15 Nov 2024 09:18:20 GMT</lastBuildDate><atom:link href="lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Fri, 15 Nov 2024 09:18:19 GMT</pubDate><ttl>60</ttl><dc:creator></dc:creator><item><title><![CDATA[Markdown]]></title><description><![CDATA[ 
+ <br>
+<a download="" href="markdown.zip" target="_blank" rel="noopener nofollow">Last ned markdown filene</a>
+<br><br>Denne nettsiden er laget med markdown-språket og eksportert til HTML. Jeg har laget siden i et program for markdown som heter Obsidian. Markdown er et språk som kan skrives i vanlig tekst og formateres. Det er også mulig å skrive html rett i et markdown dokument. Markdown gjør det enkelt å strukturere og holde oversikt over notater og prosjekter med enkel navigering mellom headings.<br>
+For eksempel har jeg brukt markdown sine lenker for å kunne navigere mellom sider. Disse kan lages slik. [Klikk her](https://youtube.com)<br>
+Men jeg har også brukt HTML for å kunne laste ned filer på samme måte som en gjør det i HTML. &lt;a href="numberanalyser.py" download&gt;her&lt;/a&gt;<br>
+For mer informasjon om markdown er det mye nyttig på <a data-tooltip-position="top" aria-label="https://www.markdownguide.org/getting-started/" rel="noopener nofollow" class="external-link" href="https://www.markdownguide.org/getting-started/" target="_blank">markdown guide.</a><br><br>Jeg begynte for noen år siden å skrive notater i .txt filer i stedet for i word. Dette ble raskt rotete og uoversiktlig. Etter å ha søkt på internettet etter alternativer fant jeg markdown. Det er allerede mulig å både skrive og vise markdown i Visual Studio Code. (Prøv å åpne en av markdown filene over i VSCode og trykk Ctrl+Shift+V) Markdown gjorde det enkelt å holde oversikt over notater og etter kort tid fant jeg ut at det er mulig å skrive HTML rett inn i markdown.<br>
+Jeg har valgt å bruke markdown for dette prosjektet fordi jeg har lyst til å lære mer om markdown og fordi det er generelt veldig enkelt å holde oversikt over alt.]]></description><link>bak-nettsiden.html</link><guid isPermaLink="false">Bak nettsiden.md</guid><pubDate>Fri, 15 Nov 2024 08:11:07 GMT</pubDate></item><item><title><![CDATA[Analyse]]></title><description><![CDATA[ 
+ <br>Important
+Denne siden beskriver hva slags informasjon det går ann å lese fra datasettet. For å se koden bak flere av tallene, se <a class="internal-link" data-href="Koden bak analysen.md" href="koden-bak-analysen.html" target="_self" rel="noopener nofollow">Programmeringsdelen</a>
+<br>
+Last ned datasettet her<br>
+<a download="" href="6TimerData.csv" target="_blank" rel="noopener nofollow">CSV</a> <a download="" href="6TimerData.gambl" target="_blank" rel="noopener nofollow">GAMBL</a>
+<br><br>Om du har lest om koden bak analysen vil du se at jeg har brukt et datasett som var målt i ca. en time. For denne analysen vil jeg bruke ett som var målt i 6 timer på en mandag.<br><br>Datasettet er loggført av en Vernier QuestLab 2. Vernier har en egen app for å laste datasettet over til datamaskin som hetet Vernier Graphical Analysis. Dette programmet lar deg se en graf over dataene som er loggført.<br><img alt="GrafRun1.png" src="grafrun1.png"><br>Note
+Denne grafen inneholder ikke alle 6 timene
+<br>Her kan vi se at lysnivået varierer veldig og gjør det vanskelig å si forskjell på vanlig lysnivå og lysnivået når noen passerer. Det er viktig å endre Threshold variabelen til det laveste punktet hvor grafen ikke viser tydelig endring. I dette tilfellet er det 38 lux. Det er enkelt å se om Threshold er feil eller ikke med å tenke på hvor sannsynlig resultatet er.<br>
+For eksempel her er det svært usannsynlig at det var 406 passeringer på litt over en og en halv time og 32 av dem bare det siste minuttet med en Threshold av 40. Det betyr at annen hvert sekund har noen passert.<br>
+<img alt="Usannsynlig.png" src="usannsynlig.png"><br>Med en threshold av 38 ser det mye mer sannsynlig ut.<br>
+<img alt="sannsynlig.png" src="sannsynlig.png"><br><br>QuestLab 2 har en funksjon som lar deg lagre flere kjøringer i samme datasett. Dette ble en svært nyttig funksjon her siden lysnivået endret seg ofte på grunn av dagslyset. Jeg holdt et øye med loggeren og når det begynte å bli mørkere ute, skiftet jeg til en ny kjøring. Datasettet som er lagt ved har 5 kjøringer som til sammen utgjør 6 timer. For å endre hvilken kjøring programmet leser av kan du endre variablene time og leveltil navnet på kolonnen for tid og lysnivå henholdsvis.<br><br><br>
+Tid: 93 minutter<br>
+Passeringer: 79
+<br>Dette var de første 93 minuttene av skoledagen på en mandag. Median og typetallet er begge 0, men det betyr ikke nødvendigvis at det var få som passerte måleren. Det mest aktive munuttet hadde faktisk 9 passeringer som er ganske mye hvis du tenker på at det er nesten en passering hver 6. sekund. Gjennomsnittet av passeringer hvert minutt var ca. 0.84.<br><br>
+Tid: 42 minutter<br>
+Passeringer: 18
+<br>De neste 42 minuttene var tydelig ikke like aktiv. Det er faktisk ikke nok passeringer til at median og typetall kan være noe annet enn 0. Gjennomsnittet var halvert ned til ca. 0.42 og det mest aktive minuttet hadde 3 passeringer. Det er tydelig at disse 42 minuttene var det lite aktivitet ut og inn av klasserommet.<br><br>
+Tid: 24 minutter<br>
+Passeringer: 41
+<br>Med en tid av bare 24 minutter tok nesten hele denne kjøringen sted i lunsjpausen. Gjennomsnittlig passeringer hver minutt her var 1.64, men her er det ikke helt sikkert at gjennomsnittet er det beste å måle med. Median og typetallet er nemlig fortsatt 0. Det er altså noen få minutter med mange passeringer som drar opp gjennomsnittet. Dette blir enda mer tydelig når det mest aktive minuttet hadde 17 passeringer. Altså var det ikke langt unna halvparten av alle passeringene hele denne kjøringen som tok sted på bare ett minutt.<br><br>
+Tid: 56 minutter<br>
+Passeringer: 66
+<br>Denne kjøringen varte lengre enn den forrige, men har fortsatt et gjennomsnitt på ca. 1.15. Jeg kan se for meg at dette stemmer litt mer enn 3. kjøring fordi det akkurat har være pause og klassen arbeider med å samle inn data fra ulike steder på skolen som skaper en del aktivitet ut og inn av klasserommet, men median og typetall viser fortsatt 0. Jeg har en mistanke om at denne kjøringen akkurat har fått med pausen på slutten, men etter å ha tvunget programmet til å avslutte 10 minutter tidligere får jeg fortsatt et liknende resultat. Altså har flertallet av minuttene hatt 0 passeringer, men det har også hatt ganske jevnt med flere passeringer med å se på det mest aktive minuttet som hadde 8 passeringer. Her kan det også være greit å nevne at variasjonsbredden på alle kjøringene har vært det samme som det mest aktive minuttet siden det minst aktive minuttet har alltid hatt 0 passeringer.<br><br>
+Tid: 68 minutter<br>
+Passeringer: 58
+<br>Den siste kjøringen likner mest på den første. Den har et gjennomsnitt av ca. 0.84 passeringer i minuttet og fortsatt median og typetall på 0. Jeg har ikke så veldig mye å legge til den siste. Den er rett og slett litt kjedelig. Det mest aktive minuttet hadde 12 passeringer (og variasjonsbredden er 12) som kan komme av at folk går inn og ut av klasserommet under pausen, men det kan også ha kommet av lysforskjeller. I Tromsø begynner det å bli mørkt ute og allerede ved slutten av denne skoledagen begynner det å bli mørkt ute. Jeg satt derfor Thresholdlitt ekstra lavt for å motarbeide endringene i dagslyset.<br><br>For å oppsummere kan mengden passeringer variere veldig, men det er også mulig å spore opp flere av disse endringene og se hva som er mest sannsynlig og justere for endringer som kan skje i omgivelsene. Det kom for eksempel tydelig frem når det var lunsj og noen pauser og selv om noen minutter kunne ha store mengder passeringer var det mulig å komme frem til logiske løsninger.<br><br>Jeg synes dette har vært et lærerikt og interessant prosjekt. Langs veien har det vært viktig å være løsningsorientert og kreativ. Deler av prosjektet mitt har vært vanskelig og utfordrende, men det har vært svært belønnende å komme meg gjennom. Jeg likte å kunne skrive dette og vurdere og reflektere over hvorfor tallene er slik som de er. Jeg likte også å kunne prøve ulike ting slik som å dele opp datasettet for å se forskjeller mellom ulike tider. Alt i alt synes jeg det har vært en god erfaring og et spennende prosjekt.]]></description><link>dataanalyse.html</link><guid isPermaLink="false">Dataanalyse.md</guid><pubDate>Wed, 13 Nov 2024 12:06:18 GMT</pubDate><enclosure url="grafrun1.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;grafrun1.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Dørgangprosjekt]]></title><description><![CDATA[ 
+ <br>
+Dette prosjektet er opprettet med hensikten å måle hvor mange ganger noen går gjennom døren til klasserommet til IMB1 og hvordan disse tallene kan endre seg i løpet av skoledagen.
+<br>Note
+Denne nettsiden er laget i markdown-språket med et program som heter Obsidian og deretter eksportert til HTML. Du kan finne markdown filene og mer informasjon om markdown <a class="internal-link" data-href="Bak nettsiden" href="bak-nettsiden.html" target="_self" rel="noopener nofollow">her</a>.
+<br><br>Jeg har nylig funnet en interesse av hvordan man måler noe med laser. For eksempel er det mulig å måle hastighet. Dette kan måles med en laser og en sensor som leser om laseren treffer den. Derfra kan den loggføre hvor lang tid noe bruker på å passere ved å huske tidene når laseren stoppet og når den kom tilbake.<br>Det er mange flere eksempler på hva laser kan brukes til. Jeg ble inspirert av et hoverboard jeg demonterte for en stund siden. I stedet for å bruke en knapp får å vite når man sto på, brukte den en laser. Når en gikk på hoverboardet ville en bit med gummi bli dyttet mellom en laser og en sensor. Dermed kunne hoverboardet vite at det var noen på. Heretter begynte jeg og tenke hvorfor. Hvorfor brukte det en laser i stedet for bare en knapp? Jeg kom fram til at en knapp kan bli skadet med tanke på at hoverboardet er mye i bevegelse og derfor er det fornuftig å bruke en laser i stedet som ikke har noen bevegelige deler.<br>Med andre ord hadde jeg fra før av lyst til å måle noe med laser. Det tok ikke lang tid å komme frem til at jeg kunne måle hvor ofte noen gikk gjennom døren. Dessuten kunne det være interessant å se hvilke endringer i hvor ofte noen gikk gjennom døren som kunne skje i løpet av dagen med tanke på timer, fag og lunsj.<br><br>Jeg tenkte først at jeg kunne bruke en micro:bit til å lese av en laser. Micro:bit lar deg nemlig bruke mesteparten av pins til å koble til andre enheter. Ved å bruke disse vil det være mulig å koble til en lasersensor for å lese av når laseren blir blokkert. Om du har lest på noen av de andre sidene, vil du kjapt finne ut at jeg ikke brukte en lasersensor. Jeg brukte faktisk ikke en micro:bit i det hele tatt.<br>Jeg støtte på et stort problem under planleggingen. Jeg hadde nemlig ingen lasersensor. Det kan være vanskelig å måle noe med en lasersensor når du ikke har en lasersensor. Heldigvis var det ikke grunn til å kaste ut prosjektet helt ennå. Skolen hadde noen dataloggere som kunne kobles til ulike sensorer. Blant dem en lasersensor lyssensor. Etter en kjapp tur på naturfagsrommet fikk jeg datalogger, lyssensor og en laserpenn. Planen var herfra å henge disse opp på veggen på hver side av døra og hver gang laseren ble blokkert kom lysnivået til å synke. Heretter var det bare å se på en graf når noen gikk gjennom døra.<br><br>Etter at planen var klar var det bare å henge opp laseren og sensoren. Alt fungerte som det skulle i ca. 2 minutter. Siden laseren bare treffer på et veldig lite punkt, var det veldig vanskelig å sikte den inn. Det hjalp ikke akkurat når veggen ristet littegranne hver gang dåra ble åpnet. Her gjalt det å være løsningsorientert. Først og fremst åpnet jeg døra slik at ingen åpnet den eller slamret den når de gikk gjennom, men det var fremdeles vanskelig å treffe ordentlig med laseren. Her kommer post-it lappen inn i bildet. Ved å la laseren treffe en post-it lapp rett fremfor lyssensoren, ville laseren ha et større område å treffe og samtidig beholde høye lysnivåer på lyssensoren.<br>Jeg lot loggeren måle i ca. 20 minutter, men jeg endte opp med en graf som viste tyngdekraften ganske godt. Laserpennen (som vi festet med teip) datt sakte, men sikkert nedover og lysnivået ble lavere og lavere.<br>Det var tydelig at teip ikke var nok her, men det var ikke akkurat noen gode alternativer i dette tilfellet. Jeg gikk på leting etter en lommelykt som kunne brukes i stedet og fikk låne en fra Tobias. Lommelykten hadde et mye større område hvor den lyste som betydde at den ikke trengte å være like nøyaktig. Jeg festet lommelykten til veggen og sjekket lyssensoren. Alt gikk som jeg hadde håpet og etter noen minutter med å overvåke grafen begynte jeg planlegging av <a class="internal-link" data-href="Koden bak analysen" href="koden-bak-analysen.html" target="_self" rel="noopener nofollow">programmeringsdelen</a>.<br><br>Selv om jeg hadde overvåket grafen i noen minutter før jeg lot den stå og gå skjedde det utenkelige. Lyssensoren begynte å måle tall som varierte så mye at det ikke var noe nytte i dataen. Jeg tenkte at den kunne være ødelagt og byttet den ut, men fikk samme resultat.<br>
+Til slutt prøvde jeg å bare bruke lyssensoren uten laser og uten lommelykt og bare bruke lyset i rommet. Selv om det ble mye lavere lysnivå var det mulig å se når noen gikk gjennom døra.<br>
+Nå gjensto det bare å måle i en stund, analysere dataen og lage denne nettsiden.<br><br>
+<br><a class="internal-link" data-href="Dataanalyse" href="dataanalyse.html" target="_self" rel="noopener nofollow">Dataanalysen</a>
+
+<br><a class="internal-link" data-href="Koden bak analysen" href="koden-bak-analysen.html" target="_self" rel="noopener nofollow">Koden bak analysen</a>
+<br><a class="internal-link" data-href="Matematikk" href="matematikk.html" target="_self" rel="noopener nofollow">Matematikken</a>
+
+
+<br><a class="internal-link" data-href="Bak nettsiden" href="bak-nettsiden.html" target="_self" rel="noopener nofollow">Bak nettside</a>
+]]></description><link>dørgangprosjekt.html</link><guid isPermaLink="false">Dørgangprosjekt.md</guid><pubDate>Fri, 15 Nov 2024 08:06:36 GMT</pubDate></item><item><title><![CDATA[Informasjon]]></title><description><![CDATA[ 
+ <br>Important
+Denne siden beskriver koden bak flere av tallene brukt i analysen. For å se analyse av dataene, se <a class="internal-link" data-href="Dataanalyse" href="dataanalyse.html" target="_self" rel="noopener nofollow">Dataanalyse</a>. For å se matematikken bak, se <a class="internal-link" data-href="Matematikk" href="matematikk.html" target="_self" rel="noopener nofollow">Matematikken</a>
+<br>Note
+All kode er skrevet på engelsk
+<br><br>Denne siden handler om koden som brukes til å bearbeide datasettet og gjøre det leselig og forståelig. Dette er en viktig del av å hente ut data fra prosjektet siden det du sitter igjen med etter å måle noe kan være flere tusen tall.<br>
+Du kan finne python programmet <a download="" href="numberanalyser.py" target="_blank" rel="noopener nofollow">her</a>
+<br><br>Programmet trenger flere python moduler, om det mangler noen kan de installeres med<br>
+pip install (modul)<br>import pandas as pd
+from math import floor
+from termcolor import cprint
+from numpy import median
+from statistics import mode
+<br>Disse variablene må oppdateres etter hvilke innstillinger som er brukt og hvordan lysforholdene er.<br><br>frequency = 180 #how many times measured per minute
+threshold = 38 #light level separating normal and passing through
+laser = pd.read_csv("Gjennomgangsbygget.csv") #csv file to read from
+time = laser.loc[:, "Run 2:Tid(s)"]
+level = laser.loc[:, "Run 2:Illumination(lux)"]
+<br>Denne delen er den viktigste. Den deler opp dataene i minutter og deretter finner den ut når lysnivået er under det som ble satt tidligere. Når lysnivået blir lavt nok skriver den ned tiden i et array av det nåværende minuttet. Så venter den til lysnivået har steget igjen før den igjen ser etter lave lysnivåer.<br>for min in range(floor(totalminutes)):
+    amount.append([])
+
+    print("\n")
+    cprint("Minute "+str(min), attrs=["bold"])
+    print(min*frequency, "-", min*frequency+frequency)
+
+
+    for i in range(min*frequency,min*frequency+frequency):  
+        if currentwalk == False:            
+            if round(level[i]) &lt; threshold:    
+                currentwalk = True              
+                amount[min].append(time[i])     
+                print("adding pass at", i, "after", time[i], "seconds") 
+        else:       
+            since +=1   
+            if round(level[i]) &gt;= threshold:   
+	            currentwalk = False
+                #print("walkdone after", since, "times")
+                since = 0       #reset since (debug)
+    print("\nMinute complete")
+    print("Passes this minute: "+str(len(amount[min])))
+
+<br>Etter at denne delen er ferdig sitter vi igjen med et array av minutter som inneholder flerre array med tidene når noen passerte.<br>Deretter kan man finne den totale mengden med passeringer med å legge sammen hvor mange passeringer det var hvert minutt.<br>for i in range(len(amount)):
+	passes += len(amount[i])
+<br>For å finne ut mer informasjon senere lager programmet et array med mengden passeringer for hvert minutt.<br>medarr = []
+for i in range (len(amount)):
+    medarr.append(len(amount[i]))
+<br>Til slutt skriver programmet ut totale, gjennomsnittlige, median, typetallet og variasjonsbredden av hvor mange passeringer det var hvert minutt. For mer informasjon, se <a class="internal-link" data-href="Matematikk" href="matematikk.html" target="_self" rel="noopener nofollow">Matematikkdelen</a>.<br>print("Total passthroughs:", passes)
+print("Mean passthroughs per minute:", passes/(totalminutes))
+print("Median passthroughs per minute:", median(medarr))
+print("Mode passthroughs:", mode(medarr))
+print("Range of passthroughs per minute:", str((max(medarr)-min(medarr))))
+<br>For <a download="" href="testdata.csv" target="_blank" rel="noopener nofollow">dette datasettet</a> er resultatet:<br>Total passthroughs: 108
+Mean passthroughs per minute: 1.8305084745762712
+Median passthroughs per minute: 1.0
+Mode passthroughs: 3
+Range of passthroughs per minute: 7
+]]></description><link>koden-bak-analysen.html</link><guid isPermaLink="false">Koden bak analysen.md</guid><pubDate>Fri, 15 Nov 2024 07:47:43 GMT</pubDate></item><item><title><![CDATA[Informasjon]]></title><description><![CDATA[ 
+ <br>Important
+Denne siden beskriver matematikken bak flere av tallene brukt i analysen. For å se analyse av dataene, se <a class="internal-link" data-href="Dataanalyse" href="dataanalyse.html" target="_self" rel="noopener nofollow">Dataanalyse</a>. For å se koden som bruker dette, se <a class="internal-link" data-href="Koden bak analysen" href="koden-bak-analysen.html" target="_self" rel="noopener nofollow">Koden bak analysen</a>
+<br><br>Denne siden handler om metodene som brukes for å finne gjennomsnitt, median, typetall og variasjonsbredde.<br><br>I koden er det denne linjen som står for å finne gjennomsnittet. For å finne gjennomsnitt må du legge sammen alle verdiene og dele det på mengden verdier.<br>print("Mean passthroughs per minute:", passes/(totalminutes))
+<br>La oss ta 3. kjøring fra datasettet brukt i analysen som eksempel.<br><br>For å finne gjennomsnittet ville du ha lagt sammen alle passeringene<br>
+0+0+1+0+0+0+0+0+0+0+1+0+0+0+0+1+2+0+0+2+0+1+0+3+4 = 15<br>
+Deretter deler vi det på mengden verdier som i dette tilfellet er mengden minutter<br>
+15/25 = 0.6<br>Gjennomsnitt kan være et nyttig tall slik at du slipper å se gjennom alle tallene, men det betyr ikke at gjennomsnitt er helt feilfritt. For eksempel hvis du har tallene 4, 1, 7382 vil gjennomsnittet være 2&nbsp;462,33333 selv om mesteparten av tallene er lavere enn 5.<br><br>Median kan løse dette problemet ved å sette tallene i stigende rekkefølge. La oss bruke samme eksempel med litt ekstra tall for å vise hvordan median fungerer.<br>
+4, 1, 7382, 11, 15, 21<br>For å regne ut median er det første steget å sette tallene opp i stigende rekkefølge.<br>
+1, 4, 11, 15, 21, 7382<br>Deretter er median rett og slett tallet som er i midten.<br>
+I dette tilfellet er det både 11 og 15. når du har 2 tall i midten brukes gjennomsnittet av de to.<br>
+11+15/2 = 13<br><br>Typetall er det siste sentralmålet som er brukt i analysen. Typetallet er det tallet som dukker opp oftest. Om du har sett analysen la du kanskje merke til at typetallet var veldig ofte 0. Det var altså fordi de fleste minuttene hadde 0 passeringer. Det kan vi også se tydelig på 3. Kjøring.<br>
+Mengden passeringer er som oftest 0, dermed blir typetallet 0.<br><br><br>Variasjonsbredde var ikke så mye brukt i analysen, det var mest fordi variasjonsbredden var alltid det samme som det mest aktive minuttet. Variasjonsbredde er nemlig hvor stor forskjell det er mellom det største og det minste tallet i datasettet. La oss bruke disse tallene som eksempel.<br>
+55, 40, 35, 11, 53<br>For å finne variasjonsbredden må en finne forskjellen på det største og minste tallet.<br>
+55-11 = 44<br>Altså vil variasjonsbredden for dette eksempelet være 44 siden den største variasjonen av tallene er 44. I analysen er variasjonsredden alltid det samme som det mest aktive minuttet. Det er fordi det vil nesten alltid være i hvertfall ett minutt som hadde 0 passeringer. Derfor blir variasjonsbredden mest aktive minutt - 0som bare er det mest aktive minuttet.]]></description><link>matematikk.html</link><guid isPermaLink="false">Matematikk.md</guid><pubDate>Fri, 15 Nov 2024 07:41:07 GMT</pubDate></item></channel></rss>
