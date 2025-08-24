@@ -7,15 +7,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div class="debug" id="debug">
+        <input type="number" placeholder="0" id="colorinput">
+        <button id="colortest">Submit</button>
+    </div>
+
     <div class="card">
         <img src="img/pfp.png" alt="Profile Picture" class="pfp">
         <h1 class="name">Kvan2n</h1>
     </div>
 
+
+
+
+
     <script>
         var root = document.documentElement;
         bgstyle = Math.floor(Math.random() * 3);
+        debug = false;
 
+        if (debug) {
+            document.querySelector("div.debug").style.display = "block";
+        }
+        function debugMode() {
+            if (debug) {
+                document.querySelector("div.debug").style.display = "none";
+                debug = false;
+            } else {
+                document.querySelector("div.debug").style.display = "block";
+                debug = true;
+            }
+        }
 
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
@@ -34,6 +57,18 @@
                 case 2:
                     root.style.setProperty('--color1', '#0072ff');
                     root.style.setProperty('--color2', '#0072ff');
+                    break;
+                case 3:
+                    root.style.setProperty('--color1', '#c94b4b');
+                    root.style.setProperty('--color2', '#c94b4b');
+                    break;
+                case 4:
+                    root.style.setProperty('--color1', '#0F2027');
+                    root.style.setProperty('--color2', '#0F2027');
+                    break;
+                case 5:
+                    root.style.setProperty('--color1', '#0575E6');
+                    root.style.setProperty('--color2', '#0575E6');
                     break;
             }
             await sleep(100);
@@ -56,13 +91,31 @@
                     root.style.setProperty('--color1', '#00c6ff');
                     root.style.setProperty('--color2', '#0072ff');
                     break;
+                case 3:
+                    root.style.setProperty('--color1', '#4b134f');
+                    root.style.setProperty('--color2', '#c94b4b');
+                    break;
+                case 4:
+                    root.style.setProperty('--color1', '#2C5364');
+                    root.style.setProperty('--color2', '#0F2027');
+                    break;
+                case 5:
+                    root.style.setProperty('--color1', '#00F260');
+                    root.style.setProperty('--color2', '#0575E6');
+                    break;
             }
         }
 
         setInitColor(bgstyle);
 
+        document.getElementById("colortest").onclick = function() {
+            document.body.style.transition = "--color1 0s ease, --color2 0s ease";
+            bgstyle = parseInt(document.getElementById("colorinput").value);
+            setInitColor(bgstyle);
+        }
+
         document.body.onclick = function() {
-            
+            location.reload();
         };
 
         //Gradients:
