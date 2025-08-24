@@ -1,17 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kvan2n</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-<button onclick="dothis()", id="1">click here</button>
-<img src="resize.jpg"></img>
-<iframe src="https://dima.fi/exposure/?embed" width="300" height="400" frameBorder="0"></iframe>
-<a href="html/1/index.html">about me</a>
-<a href="mdtest.md">mdtest</a>
+    <div class="card">
+        <img src="img/pfp.png" alt="Profile Picture" class="pfp">
+        <h1 class="name">Kvan2n</h1>
+    </div>
 
+    <script>
+        var root = document.documentElement;
+        bgstyle = Math.floor(Math.random() * 3);
+        switch (bgstyle) {
+            case 0:
+                root.style.setProperty('--color1', '#feb47b');
+                root.style.setProperty('--color2', '#feb47b');
+                break;
+            case 1:
+                root.style.setProperty('--color1', '#2575fc');
+                root.style.setProperty('--color2', '#2575fc');
+                break;
+            case 2:
+                root.style.setProperty('--color1', '#0072ff');
+                root.style.setProperty('--color2', '#0072ff');
+                break;
+        }
+        document.body.style.transition = "--color1 5s ease, --color2 5s ease";
 
-<p style="display: block; font-size: x-large; left: auto;"><a href="Winterfire/index.html"">Winterfire</a></p>
-<script src="test.js"></script>
+        switch (bgstyle) {
+            case 0:
+                root.style.setProperty('--color1', '#ff7e5f');
+                root.style.setProperty('--color2', '#feb47b');
+                break;
+            case 1:
+                root.style.setProperty('--color1', '#6a11cb');
+                root.style.setProperty('--color2', '#2575fc');
+                break;
+            case 2:
+                root.style.setProperty('--color1', '#00c6ff');
+                root.style.setProperty('--color2', '#0072ff');
+                break;
+        }
+
+        document.body.onclick = function() {
+            location.reload();
+        };
+
+        //Gradients:
+        // 0: #ff7e5f, #feb47b
+        // 1: #6a11cb, #2575fc
+        // 2: #00c6ff, #0072ff
+    </script>
+
 </body>
 </html>
-
