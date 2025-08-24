@@ -2,15 +2,15 @@
 @property --color1
 {
     syntax: '<color>';
-    inherits: false;
-    initial-value: #ff7e5f;
+    inherits: true;
+    initial-value: #ffffff;
 }
 
 @property --color2
 {
     syntax: '<color>';
-    inherits: false;
-    initial-value: #feb47b;
+    inherits: true;
+    initial-value: #ffffff;
 }
 
 

@@ -15,39 +15,54 @@
     <script>
         var root = document.documentElement;
         bgstyle = Math.floor(Math.random() * 3);
-        switch (bgstyle) {
-            case 0:
-                root.style.setProperty('--color1', '#feb47b');
-                root.style.setProperty('--color2', '#feb47b');
-                break;
-            case 1:
-                root.style.setProperty('--color1', '#2575fc');
-                root.style.setProperty('--color2', '#2575fc');
-                break;
-            case 2:
-                root.style.setProperty('--color1', '#0072ff');
-                root.style.setProperty('--color2', '#0072ff');
-                break;
-        }
-        document.body.style.transition = "--color1 5s ease, --color2 5s ease";
 
-        switch (bgstyle) {
-            case 0:
-                root.style.setProperty('--color1', '#ff7e5f');
-                root.style.setProperty('--color2', '#feb47b');
-                break;
-            case 1:
-                root.style.setProperty('--color1', '#6a11cb');
-                root.style.setProperty('--color2', '#2575fc');
-                break;
-            case 2:
-                root.style.setProperty('--color1', '#00c6ff');
-                root.style.setProperty('--color2', '#0072ff');
-                break;
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
         }
+
+        async function setInitColor(bgstyle) {
+            switch (bgstyle) {
+                case 0:
+                    root.style.setProperty('--color1', '#feb47b');
+                    root.style.setProperty('--color2', '#feb47b');
+                    break;
+                case 1:
+                    root.style.setProperty('--color1', '#2575fc');
+                    root.style.setProperty('--color2', '#2575fc');
+                    break;
+                case 2:
+                    root.style.setProperty('--color1', '#0072ff');
+                    root.style.setProperty('--color2', '#0072ff');
+                    break;
+            }
+            await sleep(100);
+            document.body.style.transition = "--color1 5s ease, --color2 5s ease";
+            changeColors(bgstyle);
+
+        }
+
+        async function changeColors(bgstyle) {
+            switch (bgstyle) {
+                case 0:
+                    root.style.setProperty('--color1', '#ff7e5f');
+                    root.style.setProperty('--color2', '#feb47b');
+                    break;
+                case 1:
+                    root.style.setProperty('--color1', '#6a11cb');
+                    root.style.setProperty('--color2', '#2575fc');
+                    break;
+                case 2:
+                    root.style.setProperty('--color1', '#00c6ff');
+                    root.style.setProperty('--color2', '#0072ff');
+                    break;
+            }
+        }
+
+        setInitColor(bgstyle);
 
         document.body.onclick = function() {
-            location.reload();
+            
         };
 
         //Gradients:
