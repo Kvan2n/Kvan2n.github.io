@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kvan2 shitty clicker game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="page-wrapper">
+        <p id="money">The amount of money of which you currently have</p>
+        <div id="producer">
+            <h1>producer</h1>
+            <p>produces <span id="production">0</span>/s</p>
+            <div id="producerupgrade" onclick="upgrade()">upgrade for <span id="producerupgradeprice">free</span></div>
+            
+        </div>
+        <div id="rebirth" onclick="rebirth()">
+            <h1>rebirth</h1>
+            <p id="multiplier">no multiplier, haha loser</p>
+            <p>rebirth for <span id="addedmultiplier">no</span> multiplier</p>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

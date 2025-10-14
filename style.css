@@ -70,3 +70,12 @@ h1 {
 div.debug{
     display: none;
 }
+
+.secret{
+    transition: font-size 2s ease-in-out;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.secret:hover {
+    font-size: 40pt;
+}

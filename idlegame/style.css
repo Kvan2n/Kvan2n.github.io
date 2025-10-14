@@ -1,0 +1,50 @@
+#page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;    
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-direction: column;
+    user-select: none;
+}
+
+#producer {
+    background-color: black;
+    height: 20vh;
+    width: 40vw;
+    position: relative;
+}
+
+#producerupgrade {
+    background-color: aqua;
+    width: 100%;
+    height: 20%;
+    bottom: 0;
+    position: absolute;
+    color: black;
+    font-size: x-large;
+    cursor: pointer;
+}
+#producerupgrade:hover {
+    background-color: lab(67.15% -37.32 -10.98);
+}
+
+#money {
+    color: black;
+}
+
+#rebirth {
+    background-color: aqua;
+    width: 100%;
+    height: 20%;
+    bottom: 0;
+    position: absolute;
+    color: black;
+    font-size: x-large;
+    cursor: pointer;
+}
+
+#rebirth:hover {
+    background-color: lab(67.15% -37.32 -10.98);
+}

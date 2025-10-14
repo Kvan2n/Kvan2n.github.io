@@ -69,6 +69,15 @@
                 case 5:
                     root.style.setProperty('--color1', '#0575E6');
                     root.style.setProperty('--color2', '#0575E6');
+
+                    if (Math.round(Math.random()*2)==1) {
+                        anchor = document.createElement('a');
+                        anchor.href = 'idlegame/game.html';
+                        anchor.textContent = 'Kvans shitty idle game';
+                        anchor.style = "color:#00F260;"
+                        anchor.classList.add("secret");
+                        document.body.appendChild(anchor)
+                    }
                     break;
             }
             await sleep(100);
@@ -119,6 +128,8 @@
         // 0: #ff7e5f, #feb47b
         // 1: #6a11cb, #2575fc
         // 2: #00c6ff, #0072ff
+
+        
     </script>
 
 </body>
