@@ -67,6 +67,19 @@ orbit-container {
 
 }
 
+orbit-container > svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 75vw;
+    height: 75vh;
+
+    display: hidden;
+    visibility: hidden;
+}
+
 @keyframes followPath {
     from {offset-distance: 0%;}
     to {offset-distance: 100%;}
@@ -88,13 +101,15 @@ orbit-object {
 }
 
 orbit-container orbit-object {
-    position: relative;
+    position: absolute;
     pointer-events: auto;
 
+    /*
+
     offset-rotate: 0deg;
-    offset-path: ellipse(37.75vw 37.75vh); /*37.5 is half of the box size and 0.25 is half of the border width*/
+    offset-path: ellipse(37.75vw 37.75vh); /*37.5 is half of the box size and 0.25 is half of the border width*//*
     animation: linear followPath 60s infinite;
-    animation-delay: var(--animation-delay);
+    animation-delay: var(--animation-delay);*/
 
 
 }
@@ -154,6 +169,8 @@ middle-card orbit-object {
     left: calc(50% - 6vh);
     top: 10%;
 }
+
+
 
 
 

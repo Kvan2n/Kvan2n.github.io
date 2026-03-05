@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+
+        #orbiter {
+            background-color: purple;
+            position: absolute;
+            width: 10vw;
+            height: 10vw;
+        }
+    </style>
+</head>
+<body>
+    <div id="orbiter"></div>
+    <svg height="210" width="400" xmlns="http://www.w3.org/2000/svg">
+        <ellipse id="orbit" cx="200" cy="105" rx="180" ry="90" stroke="black" fill="none"></ellipse>
+    </svg>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/MotionPathPlugin.min.js"></script>
+
+    <script src="motionpathtest.js"></script>
+</body>
+</html>
