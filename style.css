@@ -86,7 +86,12 @@ orbit-container > svg {
 }
 
 
-orbit-object {
+
+
+orbit-container orbit-object {
+    position: absolute;
+    pointer-events: auto;
+
     display: block;
     background-color: white;
 
@@ -95,24 +100,29 @@ orbit-object {
     border-radius: 50%;
 
     user-select: none;
-    transition: height 0.2s ease;
+    transition: height 0.2s ease, left 1s ease, top 1s ease, offset-path 1s ease;
     z-index: 9999;
 
+
+
+
 }
 
-orbit-container orbit-object {
-    position: absolute;
-    pointer-events: auto;
-
-    /*
-
+orbit-container .orbiting {
     offset-rotate: 0deg;
-    offset-path: ellipse(37.75vw 37.75vh); /*37.5 is half of the box size and 0.25 is half of the border width*//*
+    offset-path: ellipse(37.75vw 37.75vh); /*37.5 is half of the box size and 0.25 is half of the border width*/
     animation: linear followPath 60s infinite;
-    animation-delay: var(--animation-delay);*/
-
-
+    animation-delay: var(--animation-delay);
 }
+
+
+orbit-container .displaying {
+    left: 50%;
+    top: 50%;
+
+    translate: -50% -50%;
+}
+
 
 
 
@@ -146,9 +156,9 @@ middle-card {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    translate: -50% -50%;
     aspect-ratio: 4/3;
-    /*height: 35vh;*/
+    height: 0vh;
     z-index: 1;
 
 

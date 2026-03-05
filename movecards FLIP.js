@@ -1,14 +1,10 @@
 const orbitContainer = document.querySelector("orbit-container")
 const middleCard = document.querySelector("middle-card")
-const animationContainer = document.querySelector("animation-container")
 
 
 const orbiters = document.querySelectorAll("orbit-object")
 
 let currentDisplayed = null
-
-
-gsap.registerPlugin(FLIPold)
 
 orbiters.forEach(function(orbiter){
     orbiter.addEventListener("click", function(){
@@ -24,7 +20,7 @@ orbiters.forEach(function(orbiter){
     })
 });
 
-function FLIPold (object, newParent, quickFix) {
+function FLIP (object, newParent, quickFix) {
     const first = object.getBoundingClientRect()   //save pos from before moving
 
     object.style.transition = "none"               // kill any running transition first
@@ -54,24 +50,45 @@ function FLIPold (object, newParent, quickFix) {
     requestAnimationFrame(function(){
         object.style.transition = "transform 1s ease"
         object.style.transform = ""
-        setTimeout(function(){object.style.transition=""}, 1000)    //restore default transition style after FLIPold
+        setTimeout(function(){object.style.transition=""}, 1000)    //restore default transition style after FLIP
         
     });
 }
 
 function display (object){
     if (currentDisplayed == null) {
-        const state = Flip.getState(object, {props:"offsetPath,animation,offsetRotate"})
-        middleCard.append(object)
-        Flip.from(state, {
-            duration: 1,
-            ease: "linear",
 
-        })
+        middleCard.style.transition = "none"
+        middleCard.style.height = "35vh"
 
+        middleCard.getBoundingClientRect()
+
+        //TODO: offset the final position and snap back after that, maybe have to animate that as well
+
+        FLIP(object, middleCard)
+
+        
+        middleCard.style.aspectRatio = "unset"  //disable the aspect ratio
+        middleCard.style.height = "0.5vh"   //a little height so you see the line expand
+        middleCard.style.width = "0px"  //pin current width explicitly
+        middleCard.getBoundingClientRect()  // force reflow so browser commits starting state
+
+
+        middleCard.style.transition = "height 0.5s ease, width 0.5s ease"   //enable transitions
+
+        middleCard.style.width = 35*(4/3)+"vh"  //transition the width to its width at correct aspect ratio (4/3)
+
+        setTimeout(function(){middleCard.style.height = "35vh"}, 500)   //when width is done, transition height
+
+        setTimeout(function(){  //clean up when done
+            middleCard.style.aspectRatio = ""
+            middleCard.style.width = ""
+            middleCard.style.transition = ""
+        },1000)
     }
     else {
         unDisplay(true)
+        FLIP(object, middleCard)
     }
     
 
@@ -83,7 +100,7 @@ function display (object){
 }
 
 function unDisplay (keep){
-    FLIPold(currentDisplayed, orbitContainer, true)
+    FLIP(currentDisplayed, orbitContainer, true)
 
     currentDisplayed = null
 
